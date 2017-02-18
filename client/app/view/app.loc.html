@@ -1,0 +1,82 @@
+<div class="container">
+    
+    <!--div *ngIf="!dbName">  <APP-DB> </APP-DB> </div-->
+
+    <div *ngIf="dbName">
+        <div> <p> Countries </p> </div>
+
+        <table class="table table-bordered table-hover">  
+
+        <thead>
+            <tr> 
+                <td> Name </td>
+                <td>  <button type="button" class="btn btn-primary" (click)="onCountAdd()" *ngIf="!countEditFlag" > Add </button> </td>
+            </tr>
+        </thead> 
+        <tbody>
+        <tr *ngFor='let data of counData ; let rowIndex=index' (click)="onCounRowClick(data._id, rowIndex)"> 
+            <td *ngIf="(!countEditFlag) || countEditIndex!=data._id "> {{ data.name}} </td>
+            <td *ngIf="(!countEditFlag) || countEditIndex!=data._id"> 
+                <button type="button" class="btn btn-warning" *ngIf="!countEditFlag" (click)="onCounEdit(rowIndex)" > Edit </button> 
+                <button type="button" class="btn btn-danger" (click)="onCountDelete(data._id, rowIndex)"  *ngIf="!countEditFlag" > Delete </button>
+            </td>
+
+            <td *ngIf="countEditFlag && countEditIndex==data._id"> <input type="text" required #nameref="ngModel" name="name" [(ngModel)]="counName"/>   </td>
+            <td *ngIf="countEditFlag  && countEditIndex==data._id"> 
+                <button type="button" class="btn btn-success" *ngIf="counName"   (click)="onCountSave(data._id,rowIndex)"  > Save </button> 
+                <button type="button" class="btn btn-warning" (click)="onCountCancel(data._id, rowIndex)" > Cancell </button>
+                
+            </td>
+
+
+            <!--td> {{data.type}} </td>
+            <td> {{data.refid}} </td> 
+            <td> {{data._id}} </td--> 
+        </tr>
+        </tbody>
+        
+        </table>
+    </div>
+
+
+    <div>
+          <div> <p> Locations of {{counName}}  </p>
+    </div>
+    <table class="table table-bordered table-hover">  
+
+    <thead>
+        <tr> 
+            <td> Name </td>
+            <td>  <button type="button" class="btn btn-primary" (click)="onLocAdd()"  *ngIf=" (!countEditFlag  && countId)  "> Add </button> </td>
+            
+        </tr>
+    </thead> 
+        
+    <tbody>
+    
+    <tr *ngFor='let data of locData ; let rowIndex=index'> 
+        <td *ngIf="(!countEditFlag) || locEditIndex!=data._id"> {{ data.name}} </td>
+        <td *ngIf="(!countEditFlag) || locEditIndex!=data._id"> 
+            <button type="button" class="btn btn-warning" *ngIf="!countEditFlag"  (click)="onLocEdit(rowIndex)" > Edit </button> 
+            <button type="button" class="btn btn-danger" *ngIf="!countEditFlag"  (click)="onLocDelete(data._id, rowIndex)"> Delete </button>
+        </td>
+
+
+        <td *ngIf="countEditFlag && locEditIndex==data._id"> <input type="text" required #nameref="ngModel" name="name" [(ngModel)]="locName"/>   </td>
+        <td *ngIf="countEditFlag  && locEditIndex==data._id"> 
+                <button type="button" class="btn btn-success" *ngIf="locName"   (click)="onLocSave(data._id,rowIndex)"  > Save </button> 
+                <button type="button" class="btn btn-warning" (click)="onLocCancel(data._id, rowIndex)" > Cancell </button>
+                
+        </td>
+
+        <!--td> {{data.type}} </td>
+        <td> {{data.refid}} </td> 
+        <td> {{data._id}} </td--> 
+    </tr>
+    </tbody>
+    </table>
+
+    </div>
+
+
+</div>

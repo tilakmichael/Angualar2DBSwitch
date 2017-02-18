@@ -1,0 +1,87 @@
+/* Master Styles */
+h1 {
+  color: #369;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 250%;
+}
+h2, h3 {
+  color: #444;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: lighter;
+}
+small{
+	color:red
+}
+body {
+  margin: 2em;
+}
+thead {
+  background-color: lightgrey ; 
+}
+
+tr.seqnum:hover{
+   color: blue ;
+}
+input.ng-invalid{border-left:2px solid red}
+input.ng-valid{border-left: (internal value)}
+
+.droplinks {display: none;  position: absolute; background-color:gray;  min-width: 140px; }
+.droplinks a { padding: 10px; display: block;  color:white} 
+.droplinks a:hover {  background-color:lightgray;} 
+
+.dropbutton:hover .droplinks{ display: block;    z-index: 99 !important;    } 
+
+#cpBtn{
+	position: fixed;
+  margin-top: 20px;
+	left: 10px;
+	width: 26px;
+	height: 26px;
+	background: linear-gradient(#FFF,#DDD);
+	border: #AAA 1px solid;
+	border-radius: 2px;
+	padding: 2px 5px;
+	cursor: pointer;
+	transition: border 0.3s linear 0s;
+}
+#cpBtn:hover{
+	border: #06F 1px solid;
+}
+#cpBtn:hover div{
+	background: #06F;
+}
+#cpBtn > div{
+	width: 18px;
+	height: 4px;
+	background: #333;
+	margin: 3px 0px;
+	border-radius: 4px;
+	transition: background 0.3s linear 0s;
+} 
+
+#cp{
+	position: fixed;
+	left: 2px;
+	top: 50px;
+	width: 200px;
+	height: 600px;
+	background:lightgrey;
+  color: white;
+	opacity: 0;
+	transition: opacity 0.3s linear 0s, right 0s linear 0s;
+	cursor: pointer;
+	z-index: 99 !important;
+	border-radius: 10px;
+ } 
+
+ li a{
+	 color: white ;
+	 display: white;
+  }
+
+hr {
+height: 1px;
+color: #123455;
+background-color: #123455;
+border: none;
+}
